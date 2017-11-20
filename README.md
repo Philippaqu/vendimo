@@ -4,3 +4,8 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 
 ## Marvel App 
 https://marvelapp.com/30e115c/screen/34485982
+
+## Database Model
+
+
+## Mind Map

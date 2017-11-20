@@ -1,0 +1,10 @@
+class CreateMachineCategories < ActiveRecord::Migration[5.1]
+  def change
+    create_table :machine_categories do |t|
+      t.references :machine, foreign_key: true
+      t.references :category, foreign_key: true
+
+      t.timestamps
+    end
+  end
+end

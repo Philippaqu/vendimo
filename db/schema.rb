@@ -10,21 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20171120171744) do
-
-
+ActiveRecord::Schema.define(version: 20171120173649) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-
   create_table "categories", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "machine_categories", force: :cascade do |t|
+    t.bigint "machine_id"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_machine_categories_on_category_id"
+    t.index ["machine_id"], name: "index_machine_categories_on_machine_id"
+  end
 
   create_table "machines", force: :cascade do |t|
     t.string "address"
-
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -46,4 +53,6 @@ ActiveRecord::Schema.define(version: 20171120171744) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "machine_categories", "categories"
+  add_foreign_key "machine_categories", "machines"
 end

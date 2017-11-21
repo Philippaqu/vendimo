@@ -84,20 +84,20 @@ users = []
   users << new_user
 end  
 
-Company.each do |address|
-  new_company = Company.new(
-    email: Faker::Internet.email,
+new_company = Company.new(
+    email: "delta@delta.com",
     encrypted_password: "123456",
     )
   new_company.save
-end  
 
-Machine.each do |a|
+
+address.each do 
   new_machine = Machine.new(
     address: address.shuffle.pop,
     )
   new_machine.save
-end
+end  
+
 
 
 

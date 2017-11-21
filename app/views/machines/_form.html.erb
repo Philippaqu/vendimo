@@ -1,0 +1,6 @@
+<%= simple_form_for [@machine] do |f|%>
+<%= f.input :address %>
+<%= f.input :building_photo, as: :attachinary, label: "Add a photo of the sourroundings" %>
+<%= f.input :machine_photo, as: :attachinary, label: "Add a photo of the actual machine"%>
+<%= f.submit %>
+<% end %>

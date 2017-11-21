@@ -88,6 +88,7 @@ new_company = Company.new(
     name: Faker::Company.name,
     email: Faker::Internet.email,
     encrypted_password: "123456",
+
     )
   new_company.save
 

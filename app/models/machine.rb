@@ -4,4 +4,7 @@ class Machine < ApplicationRecord
   validates :address, presence: true
   has_attachment :building_photo
   has_attachment :machine_photo
+
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
 end

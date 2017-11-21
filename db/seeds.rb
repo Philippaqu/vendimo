@@ -5,14 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-User.delete_all
-Company.delete_all
 Machine.delete_all
+Company.delete_all
+User.delete_all
 
 addresses = [
-  "R. Cais de Santarém 36 lisbon", 
-  "Largo São Sebastião da Pedreira 31 lisbon", 
+  "R. Cais de Santarém 36 lisbon",
+  "Largo São Sebastião da Pedreira 31 lisbon",
   "Av. Sidónio Pais 16 lisbon",
   "R. António Pedro 1 lisbon",
   "Av. Alm. Reis 238 lisbon",
@@ -76,18 +75,19 @@ addresses = [
 
 
 users = []
-6.times do 
+6.times do
   new_user = User.new(
     email: Faker::Internet.email,
     encrypted_password: "123456",
     )
   new_user.save
   users << new_user
-end  
+end
 
 new_company = Company.new(
     email: "delta@delta.com",
     encrypted_password: "123456",
+    name: "Company 1"
     )
   new_company.save
 
@@ -96,8 +96,9 @@ addresses.each do |address|
   new_machine = Machine.new(
     address: address.shuffle.pop,
     )
+  new_machine.company = new_company
   new_machine.save
-end  
+end
 
 
 

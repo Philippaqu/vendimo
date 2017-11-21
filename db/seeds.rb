@@ -8,8 +8,9 @@
 
 User.delete_all
 Company.delete_all
+Machine.delete_all
 
-address = [
+addresses = [
   "R. Cais de Santarém 36 lisbon", 
   "Largo São Sebastião da Pedreira 31 lisbon", 
   "Av. Sidónio Pais 16 lisbon",
@@ -91,7 +92,7 @@ new_company = Company.new(
   new_company.save
 
 
-address.each do 
+addresses.each do |address|
   new_machine = Machine.new(
     address: address.shuffle.pop,
     )

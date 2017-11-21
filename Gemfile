@@ -8,6 +8,12 @@ gem 'pg'
 gem 'puma'
 gem 'rails', '5.1.4'
 gem 'redis'
+gem 'geocoder'
+gem 'gmaps4rails'
+
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
 
 # Attachinary
 gem 'cloudinary', '1.1.7'

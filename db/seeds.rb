@@ -74,7 +74,6 @@ addresses = [
 ]
 
 
-
 users = []
 6.times do 
   new_user = User.new(
@@ -86,15 +85,17 @@ users = []
 end  
 
 new_company = Company.new(
-    email: "delta@delta.com",
+    name: Faker::Company.name,
+    email: Faker::Internet.email,
     encrypted_password: "123456",
+
     )
   new_company.save
 
 
 addresses.each do |address|
   new_machine = Machine.new(
-    address: address.shuffle.pop,
+    address: addresses.shuffle.pop,
     )
   new_machine.save
 end  

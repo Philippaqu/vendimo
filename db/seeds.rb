@@ -87,14 +87,14 @@ end
 new_company = Company.new(
     email: "delta@delta.com",
     encrypted_password: "123456",
-    name: "Company 1"
+    name: "Company 1",
     )
   new_company.save
 
 
 addresses.each do |address|
   new_machine = Machine.new(
-    address: address.shuffle.pop,
+    address: addresses.shuffle.pop,
     )
   new_machine.company = new_company
   new_machine.save

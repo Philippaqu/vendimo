@@ -10,15 +10,20 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav text-uppercase ml-auto">
-        <% if user_signed_in? %>
+        <% if company_signed_in? %>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#contact"><%= t(".profile", default: "Profile") %></a>
+          <%= link_to t(".profile", default: "Home"), root_path, class: "nav-link js-scroll-trigger"%>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#contact"><%= t(".profile", default: "Profile") %></a>
+          <%= link_to t(".dashboard", default: "Dashboard"), machines_path, class: "nav-link js-scroll-trigger"%>
         </li>
         <li class="nav-item">
-          <%= link_to t(".sign_out", default: "Log out"), destroy_user_session_path, method: :delete, class: "nav-link js-scroll-trigger" %>
+          <%= link_to t(".account", default: "Account"), edit_company_registration_path, class: "nav-link js-scroll-trigger"%>
+        </li>
+        <li class="nav-item">
+          <%= link_to  destroy_company_session_path, method: :delete, class: "nav-link js-scroll-trigger"  do %>
+               <%= t(".sign_out", default: "Sign Out")  %>
+          <% end %>
         </li>
         <% else %>
         <li class="nav-item">
@@ -31,10 +36,10 @@
           <a class="nav-link js-scroll-trigger" href="#app">Download the app</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#getvendimo">Get Vendimo</a>
+          <%= link_to "Get Vendimo", new_company_registration_path, class: "nav-link js-scroll-trigger" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link js-scroll-trigger" %>
+          <%= link_to "Company Login", new_company_session_path, class: "nav-link js-scroll-trigger" %>
         </li>
         <% end %>
       </ul>

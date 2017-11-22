@@ -1,6 +1,6 @@
 class MachinesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:new, :create]
-  before_action :authenticate_company!, only: [:new, :create]
+  # skip_before_action :authenticate_user!, only: [:new, :create]
+  # before_action :authenticate_company!, only: [:new, :create]
 
   def index
     @machines = Machine.where.not(latitude: nil, longitude: nil)

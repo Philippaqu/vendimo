@@ -1,9 +1,6 @@
-//= require external_libraries/jquery/jquery.min.js
-//= require external_libraries/bootstrap/bootstrap.bundle.min.js
-//= require external_libraries/jquery-easing/jquery.easing.min.js
-//= require external_libraries/jqBootstrapValidation.js
-//= require external_libraries/contact_me.js
-//= require external_libraries/agency.min.js
+//= require jquery
+//= require jquery_ujs
+//= require bootstrap-sprockets
 //= require jquery-fileupload/basic
 //= require cloudinary/jquery.cloudinary
 //= require attachinary

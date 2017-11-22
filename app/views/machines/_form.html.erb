@@ -43,7 +43,17 @@
                 <div class="category-checkbox">
                   <% Category.all.each do |category| %>
                   <%= check_box_tag 'category[]', category.name %>
-                  <p class="section-subheading text-muted"><%= label_tag category.name%></p>
+                  <% if category.name == 'Coffee' %>
+                  <p class="section-subheading text-muted"> <i class="fa fa-coffee"><%= label_tag category.name%></i></p>
+                  <% elsif category.name == 'Beverages' %>
+                  <p class="section-subheading text-muted"> <i class="fa fa-coffee"><%= label_tag category.name%></i></p>
+                  <% elsif category.name == 'Snacks' %>
+                  <p class="section-subheading text-muted"> <i class="fa fa-coffee"><%= label_tag category.name%></i></p>
+                  <% elsif category.name == 'Candy' %>
+                  <p class="section-subheading text-muted"> <i class="fa fa-coffee"><%= label_tag category.name%></i></p>
+                  <% else %>
+                  <p class="section-subheading text-muted"> <%= label_tag category.name%></p>
+                  <% end %>
                   <% end %>
                 </div>
                 <p class="help-block text-danger"></p>

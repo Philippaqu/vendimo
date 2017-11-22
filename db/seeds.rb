@@ -10,6 +10,16 @@ User.delete_all
 Company.delete_all
 Machine.delete_all
 
+
+new_company = Company.new(
+    name: Faker::Company.name,
+    email: Faker::Internet.email,
+    encrypted_password: "123456",
+
+    )
+  new_company.save
+
+
 addresses = [
   "R. Cais de Santarém 36 lisbon",
   "Largo São Sebastião da Pedreira 31 lisbon",
@@ -84,14 +94,6 @@ users = []
   users << new_user
 end
 
-new_company = Company.new(
-    name: Faker::Company.name,
-    email: Faker::Internet.email,
-    encrypted_password: "123456",
-
-    )
-  new_company.save
-
 
 addresses.each do |address|
   new_machine = Machine.new(
@@ -109,3 +111,23 @@ snacks = Category.new(name:"Snacks")
 snacks.save
 candy = Category.new(name: "Candy")
 candy.save
+
+# # has_attachement :photo
+# url = "http://img.clubic.com/07791435-photo-playstation.jpg"
+# product = Product.new(name: 'Playstation')
+# product.save!
+# product.photo_url = url # Upload happens here
+
+# # has_attachement :photos  (many)
+# urls = [
+#   'http://img.clubic.com/08254724-photo-xbox-console.jpg',
+#   'http://compass.xbox.com/assets/a5/d3/a5d3e0e4-38fd-42ab-90f4-e7b5112af4d1.png'
+# ]
+
+# product = Product.new(name: 'Xbox')
+# product.save!
+# product.photo_urls = urls # Multi-upload happens here
+
+
+
+

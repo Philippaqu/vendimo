@@ -56,7 +56,7 @@ end
 def destroy
   @machine = Machine.find(params[:id])
   @machine.destroy
-  redirect_to new_machine_path
+  redirect_to "/machines/new", :notice => "Your machine has been deleted"
 end
 
 private

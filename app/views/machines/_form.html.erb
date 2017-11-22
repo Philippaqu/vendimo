@@ -8,3 +8,56 @@
 <%= f.input :machine_photo, as: :attachinary, label: "Add a photo of the actual machine"%>
 <%= f.submit %>
 <% end %>
+
+
+<!-- Contact -->
+<section id="contact">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading text-uppercase">Register machine</h2>
+        <h3 class="section-subheading text-muted">Provide the details of your new machine</h3>
+      </div>
+    </div>
+    <%= simple_form_for @machine do |f|%>
+    <div class="row">
+      <div class="col-lg-12">
+        <form id="contactForm" name="sentMessage" novalidate>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <%= f.input :address, class: "form-control", placeholder: "Address *" %>
+                <p class="help-block text-danger"></p>
+              </div>
+              <div class="form-group">
+                <%= f.input :building_photo, as: :attachinary, class: "form-control", label: "Upload picture of vending machine sourroundings" %>
+                <p class="help-block text-danger"></p>
+              </div>
+              <div class="form-group">
+                <%= f.input :machine_photo, as: :attachinary, class: "form-control", label: "Upload picture of actual vending machine" %>
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <div class="category-checkbox">
+                  <% Category.all.each do |category| %>
+                  <%= check_box_tag 'category[]', category.name %>
+                  <p class="section-subheading text-muted"><%= label_tag category.name%></p>
+                  <% end %>
+                </div>
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-lg-12 text-center">
+              <div id="success"></div>
+              <%= f.button :submit, "Register Machine", class: "btn btn-primary btn-xl text-uppercase"  %>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</section>

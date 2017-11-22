@@ -1,6 +1,10 @@
 class MachinesController < ApplicationController
+
+  before_action :authenticate_company!
+
   # skip_before_action :authenticate_user!, only: [:new, :create]
   # before_action :authenticate_company!, only: [:new, :create]
+
 
   def index
     @machines = Machine.where.not(latitude: nil, longitude: nil)
@@ -9,6 +13,13 @@ class MachinesController < ApplicationController
       marker.lat machine.latitude
       marker.lng machine.longitude
     end
+  end
+
+  def show
+    @company = current_company
+    @machine = Machine.find(params[:id])
+    @machines_count = current_company.machines.size
+    @category = @machine.categories
   end
 
   def new
@@ -26,6 +37,26 @@ class MachinesController < ApplicationController
   params[:category].each do |category|
     @machine.machine_categories.create(category_id: Category.find_by(name: category).id)
   end
+  redirect_to machine_path(@machine)
+end
+
+def edit
+  @machine = Machine.find(params[:id])
+end
+
+def update
+  @machine = Machine.find(params[:id])
+  if @machine.update(machine_params)
+  redirect_to machine_path(@machine)
+else
+  render :edit
+end
+end
+
+def destroy
+  @machine = Machine.find(params[:id])
+  @machine.destroy
+  redirect_to new_machine_path
 end
 
 private

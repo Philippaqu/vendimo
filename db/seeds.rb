@@ -1,3 +1,5 @@
+require 'faker'
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -5,20 +7,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Category.delete_all
+# Category.delete_all
 User.delete_all
 Company.delete_all
 Machine.delete_all
-
-
-new_company = Company.new(
-    name: Faker::Company.name,
-    email: Faker::Internet.email,
-    encrypted_password: "123456",
-
-    )
-  new_company.save
-
 
 addresses = [
   "R. Cais de Santarém 36 lisbon",
@@ -88,29 +80,38 @@ users = []
 6.times do
   new_user = User.new(
     email: Faker::Internet.email,
-    encrypted_password: "123456",
+    password: "123456",
     )
   new_user.save
-  users << new_user
 end
 
-
-addresses.each do |address|
-  new_machine = Machine.new(
-    address: addresses.shuffle.pop,
+1.times do 
+  new_company = Company.new(
+    name: "Delta Cafe",
+    email: "deltacafe@delta.com",
+    password: "123456",
     )
-  new_machine.save
+  new_company.save
+
+  addresses.each do |address|
+    new_machine = Machine.new(
+      address: addresses.shuffle.pop,
+      company_id: new_company.id
+      )
+    new_machine.save
+  end
+
 end
 
 
-beverages = Category.new(name: "Beverages")
-beverages.save
-coffee = Category.new(name: "Coffee")
-coffee.save
-snacks = Category.new(name:"Snacks")
-snacks.save
-candy = Category.new(name: "Candy")
-candy.save
+# beverages = Category.new(name: "Beverages")
+# beverages.save
+# coffee = Category.new(name: "Coffee")
+# coffee.save
+# snacks = Category.new(name:"Snacks")
+# snacks.save
+# candy = Category.new(name: "Candy")
+# candy.save
 
 # # has_attachement :photo
 # url = "http://img.clubic.com/07791435-photo-playstation.jpg"

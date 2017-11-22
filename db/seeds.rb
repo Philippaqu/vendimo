@@ -8,9 +8,11 @@ require 'faker'
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 # Category.delete_all
+
 User.delete_all
-Company.delete_all
+
 Machine.delete_all
+Company.delete_all
 
 addresses = [
   "R. Cais de Santarém 36 lisbon",

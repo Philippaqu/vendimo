@@ -5,10 +5,18 @@ Rails.application.routes.draw do
 
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+    as :user do
+      get 'balance', to: 'payments#balance'
+    resources :payments, only: [:new, :create]
+    end
+
+
 
   mount Attachinary::Engine => "/attachinary"
 
   resources :machines
+
+
 
 
 

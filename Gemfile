@@ -32,6 +32,10 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 
+# Payment
+gem 'money-rails'
+gem 'stripe'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'

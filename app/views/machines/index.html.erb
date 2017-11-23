@@ -1,4 +1,36 @@
-<div id="map" style="width: 100%; height: 600px;"></div>
+<!-- Services -->
+<section id="app">
+  <div class="container">
+    <h3>Dashboard</h3>
+  </div>
+</section>
+<div id="map" style="width: 100%; height: 350px;"></div>
+<!-- About -->
+<section id="getvendimo">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h3 class="section-heading text-uppercase">Vending Machine Status</h3>
+      </div>
+    </div>
+    <% @machines.each do |machine| %>
+    <div class="row">
+      <div class="col-lg-3">
+          <%= machine.address %>
+      </div>
+      <div class="col-lg-6">
+          Address
+          categories
+      </div>
+      <div class="col-lg-3">
+          View QR Code
+          Delete Button
+          Edit Machine
+      </div>
+    </div>
+    <% end %>
+  </div>
+</section>
 
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>

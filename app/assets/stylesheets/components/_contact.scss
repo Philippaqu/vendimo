@@ -19,7 +19,15 @@ section#contact {
     textarea.form-control {
       height: 248px;
     }
+    label.control-label {
+      color: white!important;
+      text-transform: uppercase!important;
+      font-weight: 700;
+      font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+      font-size: 1.75rem;
+    }
   }
+
   .form-control:focus {
     border-color: $primary;
     box-shadow: none;

@@ -7,10 +7,11 @@ require 'faker'
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-# Category.delete_all
+
 
 User.delete_all
-
+MachineCategory.delete_all
+Category.delete_all
 Machine.delete_all
 Company.delete_all
 
@@ -87,7 +88,12 @@ users = []
   new_user.save
 end
 
-1.times do 
+beverages = Category.create(name: "Beverages")
+coffee = Category.create(name: "Coffee")
+snacks = Category.create(name:"Snacks")
+candy = Category.create(name: "Candy")
+
+1.times do
   new_company = Company.new(
     name: "Delta Cafe",
     email: "deltacafe@delta.com",
@@ -101,19 +107,12 @@ end
       company_id: new_company.id
       )
     new_machine.save
+    new_machine.machine_categories.create(category_id: 6)
   end
 
 end
 
 
-# beverages = Category.new(name: "Beverages")
-# beverages.save
-# coffee = Category.new(name: "Coffee")
-# coffee.save
-# snacks = Category.new(name:"Snacks")
-# snacks.save
-# candy = Category.new(name: "Candy")
-# candy.save
 
 # # has_attachement :photo
 # url = "http://img.clubic.com/07791435-photo-playstation.jpg"

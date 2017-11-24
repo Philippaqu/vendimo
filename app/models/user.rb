@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable,
   :omniauthable, omniauth_providers: [:facebook]
+  monetize :balance_cents
+  has_many :payments
 
   def self.find_for_facebook_oauth(data)
     email = data.info.email

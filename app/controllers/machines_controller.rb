@@ -1,11 +1,4 @@
 class MachinesController < ApplicationController
-
-  before_action :authenticate_company!
-
-  # skip_before_action :authenticate_user!, only: [:new, :create]
-  # before_action :authenticate_company!, only: [:new, :create]
-
-
   def index
     @machines = Machine.where.not(latitude: nil, longitude: nil)
 
@@ -40,18 +33,18 @@ class MachinesController < ApplicationController
   redirect_to machine_path(@machine)
 end
 
-def edit
-  @machine = Machine.find(params[:id])
-end
+  def edit
+    @machine = Machine.find(params[:id])
+  end
 
-def update
-  @machine = Machine.find(params[:id])
-  if @machine.update(machine_params)
-  redirect_to machine_path(@machine)
-else
-  render :edit
-end
-end
+  def update
+    @machine = Machine.find(params[:id])
+    if @machine.update(machine_params)
+      redirect_to machine_path(@machine)
+    else
+      render :edit
+    end
+  end
 
 def destroy
   @machine = Machine.find(params[:id])

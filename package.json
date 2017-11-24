@@ -1,5 +1,7 @@
 {
   "name": "vendimo",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@ionic-native/in-app-browser": "^4.4.2"
+  }
 }

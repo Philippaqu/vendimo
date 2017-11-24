@@ -1,49 +1,87 @@
-<section id="contact">
+<section id="services">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
-        <h2 class="section-heading text-uppercase"> </h2>
+        <h2 class="section-heading text-uppercase">Check and update your balance</h2>
+        <h3 class="section-subheading text-muted">Easily buy more credit to use our machines</h3>
       </div>
     </div>
     <div class="row">
-
-    <p>Balance:  <%= humanized_money_with_symbol(@user.balance) %></p>
-
-<h1>Charge balance 5 EUR </h1>
-<%= form_tag payments_path do %>
-  <article>
-    <label class="amount">
-      <span>Amount: 5 </span>
-    </label>
-  </article>
-  <%= hidden_field_tag :value, 500 %>
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-    data-name="Vendimo"
-    data-email="<%= @user.email %>"
-    data-description="EUR 5"
-    data-amount="500"
-    data-currency="<%= @user.balance.currency %>"></script>
-<% end %>
-
-
-
-
-
-
-<%= link_to '5', payments_path(value: '500'), class: "btn btn-primary", method: :post %>
-<%= link_to '10', payments_path(value: '1000'), class: "btn btn-primary", method: :post %>
-<%= link_to '20', payments_path(value: '2000'), class: "btn btn-primary", method: :post %>
-
-
-
-
-
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-</script>
+      <div class="col-md-4">
+        <span fa-stack>
+          <h4 class="service-heading">Current Balance:  <%= humanized_money_with_symbol(@user.balance) %></h4>
+        </span>
+      </div>
     </div>
+    <div class="row text-center">
+      <div class="col-md-4">
+        <span class="fa-stack fa-4x">
+          <i class="fa fa-circle fa-stack-2x text-primary"></i>
+          <i class="fa-stack-1x fa-inverse">5€</i>
+        </span>
+        <p class="text-muted">Add 5€ to your account</p>
+        <%= form_tag payments_path do %>
+        <article>
+          <label class="amount">
+          </label>
+        </article>
+        <%= hidden_field_tag :value, 500 %>
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+        data-name="Vendimo"
+        data-email="<%= @user.email %>"
+        data-description="5€"
+        data-amount="500"
+        data-currency="<%= @user.balance.currency %>"></script>
+        <% end %>
+      </div>
+      <div class="col-md-4">
+        <span class="fa-stack fa-4x">
+          <i class="fa fa-circle fa-stack-2x text-primary"></i>
+          <i class="fa-stack-1x fa-inverse">10€</i>
+        </span>
+        <p class="text-muted">Add 10€ to your account</p>
+        <%= form_tag payments_path do %>
+        <article>
+          <label class="amount">
+          </label>
+        </article>
+        <%= hidden_field_tag :value, 1000 %>
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+        data-name="Vendimo"
+        data-email="<%= @user.email %>"
+        data-description="10€"
+        data-amount="1000"
+        data-currency="<%= @user.balance.currency %>"></script>
+        <% end %>
+      </div>
+      <div class="col-md-4">
+        <span class="fa-stack fa-4x">
+          <i class="fa fa-circle fa-stack-2x text-primary"></i>
+          <i class="fa-stack-1x fa-inverse">20€</i>
+        </span>
+        <p class="text-muted">Add 20€ to your account</p>
+        <%= form_tag payments_path do %>
+        <article>
+          <label class="amount">
+          </label>
+        </article>
+        <%= hidden_field_tag :value, 2000 %>
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+        data-name="Vendimo"
+        data-email="<%= @user.email %>"
+        data-description="20€"
+        data-amount="2000"
+        data-currency="<%= @user.balance.currency %>"></script>
+        <% end %>
+      </div>
     </div>
-    </section>
+  </div>
+</div>
+</section>
+
+
 
 

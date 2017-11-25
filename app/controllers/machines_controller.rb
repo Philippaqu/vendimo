@@ -1,10 +1,18 @@
 class MachinesController < ApplicationController
   def index
     @machines = Machine.where.not(latitude: nil, longitude: nil)
-
-    @hash = Gmaps4rails.build_markers(@machines) do |machine, marker|
+    @hash  = Gmaps4rails.build_markers @machines do |machine, marker|
       marker.lat machine.latitude
       marker.lng machine.longitude
+      marker.infowindow render_to_string(partial: "/machines/map_box", locals: { machine: machine })
+      # Works with Placehold.it
+      # marker.picture({
+      #                 :url    => "https://www.iconexperience.com/_img/o_collection_png/green_dark_grey/512x512/plain/vending_machine.png",
+      #                 :width  => "32",
+      #                 :height => "32"
+      #                })
+      marker.title   "i'm the title"
+      marker.json({ :id => machine.id })
     end
   end
 

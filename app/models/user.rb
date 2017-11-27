@@ -27,4 +27,13 @@ class User < ApplicationRecord
       user
     end
   end
+
+  def adjust_price(amount)
+    self.balance_cents = self.balance_cents - amount
+    self.save
+  end
+
+  def check_balance(price_to_check)
+    self.balance_cents > price_to_check ? true : false # checks if user has enough balance, returns true or false
+  end
 end

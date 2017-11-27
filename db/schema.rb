@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171125202536) do
+ActiveRecord::Schema.define(version: 20171127175106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,8 +50,18 @@ ActiveRecord::Schema.define(version: 20171125202536) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.integer "balance_cents", default: 0, null: false
     t.index ["email"], name: "index_companies_on_email", unique: true
     t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.integer "number"
+    t.integer "price_cents", default: 0, null: false
+    t.string "price_currency", default: "EUR", null: false
+    t.boolean "availability"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "machine_categories", force: :cascade do |t|
@@ -81,12 +91,14 @@ ActiveRecord::Schema.define(version: 20171125202536) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.bigint "payment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "value_cents", default: 0, null: false
-    t.string "state"
-    t.index ["payment_id"], name: "index_orders_on_payment_id"
+    t.bigint "user_id"
+    t.bigint "machine_id"
+    t.bigint "item_id"
+    t.index ["item_id"], name: "index_orders_on_item_id"
+    t.index ["machine_id"], name: "index_orders_on_machine_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "payments", force: :cascade do |t|
@@ -125,6 +137,8 @@ ActiveRecord::Schema.define(version: 20171125202536) do
   add_foreign_key "machine_categories", "categories"
   add_foreign_key "machine_categories", "machines"
   add_foreign_key "machines", "companies"
-  add_foreign_key "orders", "payments"
+  add_foreign_key "orders", "items"
+  add_foreign_key "orders", "machines"
+  add_foreign_key "orders", "users"
   add_foreign_key "payments", "users"
 end

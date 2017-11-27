@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
   root to: 'pages#home'
   devise_for :companies
+
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
     as :user do

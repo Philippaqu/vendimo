@@ -14,25 +14,20 @@
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <h3 class="section-heading text-uppercase">* Email</h3>
                 <%= f.input :email, required: true, autofocus: true, class: "form-control", id: "email" %>
                 <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
                 <p class="help-block text-danger">Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
                 <% end %>
               </div>
               <div class="form-group">
-                <h3 class="section-heading text-uppercase">Password</h3>
                 <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false, class: "form-control", id: "email" %>
-                <h3 class="section-subheading text-muted">Leave it blank if you don't want to change.</h3>
                 <p class="help-block text-danger"></p>
               </div>
               <div class="form-group">
-                <h3 class="section-heading text-uppercase">Password confirmation</h3>
                 <%= f.input :password_confirmation, required: false %>
                 <p class="help-block text-danger"></p>
               </div>
               <div class="form-group">
-                <h3 class="section-heading text-uppercase">Current Password</h3>
                 <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
                 <p class="help-block text-danger"></p>
               </div>

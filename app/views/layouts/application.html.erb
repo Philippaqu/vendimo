@@ -1,33 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <title>Vendimo - Intelligent Vending Machine Solution</title>
-
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
+
     <%= stylesheet_link_tag 'application', media: 'all' %>
-
   </head>
-
   <body id="page-top">
+
     <%= render 'shared/navbar' %>
     <%= yield %>
-    <%= javascript_include_tag 'application' %>
     <%= render 'shared/footer' %>
+
+    <%= yield(:before_js) %>
+    <%= javascript_include_tag 'application' %>
+    <%= yield(:after_js) %>
+
     <%= cloudinary_js_config %>
     <%= javascript_include_tag "https://maps.google.com/maps/api/js" %>
     <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/markerclusterer/src/markerclusterer_compiled.js" %>
     <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" %>
-  <%= yield(:after_js) %>
   </body>
-
 </html>
-
-

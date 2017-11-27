@@ -5,14 +5,14 @@ class MachinesController < ApplicationController
       marker.lat machine.latitude
       marker.lng machine.longitude
       marker.infowindow render_to_string(partial: "/machines/map_box", locals: { machine: machine })
-      # Works with Placehold.it
-      # marker.picture({
-      #                 :url    => "https://www.iconexperience.com/_img/o_collection_png/green_dark_grey/512x512/plain/vending_machine.png",
-      #                 :width  => "32",
-      #                 :height => "32"
-      #                })
-      marker.title   "i'm the title"
-      marker.json({ :id => machine.id })
+      # # Works with Placehold.it
+      # # marker.picture({
+      # #                 :url    => "https://www.iconexperience.com/_img/o_collection_png/green_dark_grey/512x512/plain/vending_machine.png",
+      # #                 :width  => "32",
+      # #                 :height => "32"
+      # #                })
+      # marker.title   "i'm the title"
+      # marker.json({ :id => machine.id })
     end
   end
 
@@ -63,6 +63,8 @@ end
 private
 
 def machine_params
-  params.require(:machine).permit(:address, :building_photo, :machine_photo)
+  params.require(:machine).permit(:address, :building_photo,
+    :machine_photo, :model, :firmware, :manufacturer, :serial_number,
+    :location_contact, :location_phone, :location_install_date)
 end
 end

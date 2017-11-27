@@ -10,6 +10,8 @@ gem 'rails', '5.1.4'
 gem 'redis'
 gem 'geocoder'
 gem 'gmaps4rails'
+gem 'chartkick'
+gem 'groupdate'
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"

@@ -1,1 +1,80 @@
-<%= render "show_form" %>
+<section style="padding: 150px 0px 50px 0px;">
+  <div class="container">
+    <!-- Machine header -->
+    <div class="row">
+      <div class="col-lg-9">
+        <h3>Machine id: <%= @machine.id %></h3>
+        <h3>Model: <%= @machine.model %></h3>
+        <h3>Manufacturer: <%= @machine.manufacturer %></h3>
+        <h3>Firmware: <%= @machine.firmware %></h3>
+        <h3>Last maintenance: </h3>
+      </div>
+      <div class="col-lg-3">
+        Location image
+        machine image
+      </div>
+    </div>
+    <!-- END OF CONTAINER-->
+  </div>
+</section>
+<section class="bg-light" style="padding: 50px 0px 50px 0px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h3>Items in this machine:</h3>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- CHARTS -->
+<section style="padding: 50px 0px 50px 0px;">
+  <div class="container">
+    <!-- Purchase -->
+    <div class="row">
+      <div class="col-lg-6">
+        <h3>Purchases:</h3>
+        <%= line_chart Machine.group_by_day(:created_at).count %>
+      </div>
+      <div class="col-lg-6">
+        <h3>Top selling products</h3>
+        <%= pie_chart Machine.group(:firmware).count %>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- UTILITIES -->
+<section style="padding: 50px 0px 50px 0px;">
+  <div class="container">
+    <div class="tabs">
+      <a class="tab active" data-toggle="tab" href="#home">
+        <h3></h3>
+        <p>Products available</p>
+      </a>
+      <a class="tab" data-toggle="tab" href="#menu1">
+        <h3></h3>
+        <p>Alerts</p>
+      </a>
+      <a class="tab" data-toggle="tab" href="#menu1">
+        <h3></h3>
+        <p>Maintenance history</p>
+      </a>
+    </div>
+    <div class="tab-content">
+      <div id="home" class="tab-pane fade in active">
+        <h3>HOME</h3>
+        <p>Some content.</p>
+      </div>
+      <div id="menu1" class="tab-pane fade">
+        <h3>Menu 1</h3>
+        <p>Some content in menu 1.</p>
+      </div>
+      <div id="menu2" class="tab-pane fade">
+        <h3>Menu 2</h3>
+        <p>Some content in menu 2.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<% content_for(:before_js) do %>
+  <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+<% end %>

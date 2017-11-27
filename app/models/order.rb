@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-  belongs_to :item, dependent: :destro
+  belongs_to :item, dependent: :destroy
   belongs_to :machine
   belongs_to :user
 
@@ -11,11 +11,11 @@ class Order < ApplicationRecord
 
     if self.user.check_balance(item_price) && self.item.check_item[:response]
       self.user.adjust_price(item_price)
-      # company balance
+      self.machine.company.adjust_price(item_price)
     end
   end
 
-private
+  private
   def check_price
     item_price = self.item.price_cents # getting the price of the order's item
 

@@ -2,16 +2,18 @@
   <div class="container">
     <!-- Machine header -->
     <div class="row">
-      <div class="col-lg-9">
+
+      <div class="col-lg-6">
         <p>Machine id: <%= @machine.id %></p>
-        <h3>Model: <%= @machine.model %></h3>
-        <h3>Manufacturer: <%= @machine.manufacturer %></h3>
-        <h3>Firmware: <%= @machine.firmware %></h3>
-        <h3>Last maintenance: </h3>
+        <p>Model: <%= @machine.model %></p>
+        <p>Manufacturer: <%= @machine.manufacturer %></p>
+        <p>Firmware: <%= @machine.firmware %></p>
+        <p>Last maintenance: </p>
+
       </div>
-      <div class="col-lg-3">
-        Location image
-        machine image
+      <div class="col-md-6">
+        <img src="https://c1.staticflickr.com/4/3212/2795357890_f3f00f75de_b.jpg" alt="Vending Machine" style="width:200px;height:200px;">
+        <img src="http://www.prague.eu/object/2161/folimanka1.jpg" alt="Landmark" style="width:200px;height:200px;">
       </div>
     </div>
     <!-- END OF CONTAINER -->
@@ -22,7 +24,14 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
+        <div style= "display: flex;justify-content: space-between;">
         <h3>Items in this machine:</h3>
+        <i class="fa fa-birthday-cake" aria-hidden="true" style="width:28px;height:28px"></i>
+        <i class="fa fa-cutlery" aria-hidden="true"></i> 
+        <i class="fa fa-coffee" aria-hidden="true"></i>
+        <i class="fa fa-plug" aria-hidden="true"></i>
+        <i class="fa fa-beer" aria-hidden="true"></i>
+      </div>
       </div>
     </div>
   </div>
@@ -48,32 +57,27 @@
 <section style="padding: 50px 0px 50px 0px;">
   <div class="container">
     <div class="tabs">
-      <a class="tab active" data-toggle="tab" href="#home">
+      <a class="tab active" data-toggle="tab" href="#menu1">
         <h3></h3>
-        <p>Products available</p>
+        <p>Maintenance History</p>
       </a>
-      <a class="tab" data-toggle="tab" href="#menu1">
+      <a class="tab" data-toggle="tab" href="#menu2">
         <h3></h3>
         <p>Alerts</p>
       </a>
-      <a class="tab" data-toggle="tab" href="#menu1">
-        <h3></h3>
-        <p>Maintenance history</p>
-      </a>
     </div>
     <div class="tab-content">
-      <div id="home" class="tab-pane fade in active">
-        <h3>HOME</h3>
-        <p>Some content.</p>
-      </div>
       <div id="menu1" class="tab-pane fade">
         <h3>Menu 1</h3>
-        <p>Some content in menu 1.</p>
       </div>
       <div id="menu2" class="tab-pane fade">
         <h3>Menu 2</h3>
         <p>Some content in menu 2.</p>
       </div>
+      <p>2017-25-11 Restock to full</p>
+      <p>2017-17-11 Restock to full</p>
+      <p>2017-08-11 Machine Malfunction Notification</p>
+      <p>2017-04-11 Restock to full</p>
     </div>
   </div>
 </section>

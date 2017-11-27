@@ -88,10 +88,21 @@ users = []
   new_user.save
 end
 
-beverages = Category.create(name: "Beverages")
-coffee = Category.create(name: "Coffee")
-snacks = Category.create(name:"Snacks")
-candy = Category.create(name: "Candy")
+categories = [
+"Beverages", "Coffee", "Snacks", "Candy", "Electronics",
+]
+
+categories.each do |category|
+  new_category = Category.new(
+  name: categories.sample(x)
+  )
+  new_category.save
+
+# beverages = Category.create(name: "Beverages")
+# coffee = Category.create(name: "Coffee")
+# snacks = Category.create(name:"Snacks")
+# candy = Category.create(name: "Candy")
+
 
 1.times do
   new_company = Company.new(

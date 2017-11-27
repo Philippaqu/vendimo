@@ -12,58 +12,48 @@
       <div class="col-lg-6">
         <h3>Machine Info:</h3>
         <div class="form-group">
-          <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
+          <%= f.input :manufacturer, placeholder: "Philips", class: "form-control",label: "Manufacturer" %>
         </div>
         <div class="form-group">
-          <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
+          <%= f.input :model, placeholder: "DSX98000", class: "form-control",label: "Model" %>
         </div>
         <div class="form-group">
-          <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
+          <%= f.input :firmware, placeholder: "DEX9.0", class: "form-control",label: "Firmware" %>
         </div>
         <div class="form-group">
-          <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-        </div>
-        <div class="form-group">
-          <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-        </div>
-
-        <div class="form-group">
-          <%= f.input :building_photo, as: :attachinary, class: "form-control",label: "Upload picture of vending machine sourroundings" %>
-          <p class="help-block text-danger"></p>
-        </div>
-        <div class="form-group">
-          <%= f.input :machine_photo, as: :attachinary, class: "form-control",label: "Upload picture of actual vending machine" %>
-          <p class="help-block text-danger"></p>
+          <%= f.input :serial_number, placeholder: "SN579209345867w-9", class: "form-control",label: "Serial Number" %>
         </div>
       </div>
       <!-- LOCATION INFO -->
       <div class="col-lg-6">
         <h3>Location info:</h3>
         <div class="form-group">
-          <%= f.input :address, class: "form-control", placeholder: "Address *"%>
+          <%= f.input :address, class: "form-control", placeholder: "Rua da sociedade farmacutiva 5, Lisboa"%>
         </div>
         <div class="form-group">
-          <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
+          <%= f.input :location_contact, placeholder: "Maria Jose", class: "form-control",label: "Location Contact" %>
         </div>
         <div class="form-group">
-          <input class="form-control" type="tel" value="1-(555)-555-5555" id="example-tel-input">
+          <%= f.input :location_phone, placeholder: "+351 123 123 123", class: "form-control",label: "Phone" %>
         </div>
         <div class="form-group ">
-          <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
-        </div>
-        <div class="form-group ">
-          <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+          <%= f.input :location_install_date, as: :date, class: "form-control",label: "Install Date" %>
         </div>
       </div>
       <div class="col-lg-12">
         <div class="form-group">
-
+          <%= f.input :building_photo, as: :attachinary, class: "form-control",label: "Location picture" %>
+          <p class="help-block text-danger"></p>
+        </div>
+        <div class="form-group">
+          <%= f.input :machine_photo, as: :attachinary, class: "form-control",label: "Machine picture" %>
+          <p class="help-block text-danger"></p>
         </div>
       </div>
       <div class="clearfix"></div>
       <div class="col-lg-12 text-center">
         <div id="success"></div>
-        <%= f.button :submit, "Register Machine", class: "btn btn-primary btn-xl text-uppercase"  %>
+        <%= f.button :submit, class: "btn btn-primary btn-xl text-uppercase"  %>
       </div>
     </div>
   </div>

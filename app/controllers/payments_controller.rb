@@ -24,9 +24,9 @@ current_user.save
 redirect_to balance_path
 
 
-rescue Stripe::CardError => e
-  flash[:alert] = e.message
-  redirect_to new_order_payment_path(@order)
+# rescue Stripe::CardError => e
+  # flash[:alert] = e.message
+ # redirect_to new_order_payment_path(@order)
 end
 
 end

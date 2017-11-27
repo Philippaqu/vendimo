@@ -8,7 +8,7 @@ require 'faker'
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+Item.delete_all
 User.delete_all
 MachineCategory.delete_all
 Category.delete_all
@@ -112,8 +112,18 @@ candy = Category.create(name: "Candy")
 
 end
 
-
-
+item_1 = Item.new(number: 5, price_cents: 120, availability: true)
+item_1.save
+item_2 = Item.new(number: 43, price_cents: 50, availability: true)
+item_2.save
+item_3 = Item.new(number: 44, price_cents: 240, availability: false)
+item_3.save
+item_4 = Item.new(number: 45, price_cents: 100, availability: true)
+item_4.save
+item_5 = Item.new(number: 46, price_cents: 110, availability: true)
+item_5.save
+item_6 = Item.new(number: 47, price_cents: 80, availability: false)
+item_6.save
 # # has_attachement :photo
 # url = "http://img.clubic.com/07791435-photo-playstation.jpg"
 # product = Product.new(name: 'Playstation')

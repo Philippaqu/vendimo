@@ -24,6 +24,9 @@ gem 'attachinary', github: 'assembler/attachinary'
 gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
 
+# QR Code
+gem 'rqrcode-with-patches', '~> 0.5.4'
+
 # Omniauth
 gem 'omniauth-facebook'
 

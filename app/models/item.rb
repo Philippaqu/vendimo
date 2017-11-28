@@ -17,12 +17,12 @@ class Item < ApplicationRecord
         response: true,
         price:  price_cents
        }
-      else
+    else
         errors.add(:availability, "out of stock")
         return {
           response: false,
           message: "Out of stock"
         }
-      end
     end
   end
+end

@@ -94,10 +94,10 @@ categories = [
 
 categories.each do |category|
   new_category = Category.new(
-  name: categories.sample(x)
+    name: category
   )
   new_category.save
-
+end
 # beverages = Category.create(name: "Beverages")
 # coffee = Category.create(name: "Coffee")
 # snacks = Category.create(name:"Snacks")
@@ -123,18 +123,13 @@ categories.each do |category|
 
 end
 
-item_1 = Item.new(number: 5, price_cents: 120, availability: true)
-item_1.save
-item_2 = Item.new(number: 43, price_cents: 50, availability: true)
-item_2.save
-item_3 = Item.new(number: 44, price_cents: 240, availability: false)
-item_3.save
-item_4 = Item.new(number: 45, price_cents: 100, availability: true)
-item_4.save
-item_5 = Item.new(number: 46, price_cents: 110, availability: true)
-item_5.save
-item_6 = Item.new(number: 47, price_cents: 80, availability: false)
-item_6.save
+item_1 = Item.create(number:  5, price_cents: 120, availability: true)
+item_2 = Item.create(number: 43, price_cents: 50, availability: true)
+item_3 = Item.create(number: 44, price_cents: 240, availability: false)
+item_4 = Item.create(number: 45, price_cents: 100, availability: true)
+item_5 = Item.create(number: 46, price_cents: 110, availability: true)
+item_6 = Item.create(number: 47, price_cents: 80, availability: false)
+
 # # has_attachement :photo
 # url = "http://img.clubic.com/07791435-photo-playstation.jpg"
 # product = Product.new(name: 'Playstation')

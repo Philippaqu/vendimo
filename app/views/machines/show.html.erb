@@ -9,6 +9,11 @@
         <p>Manufacturer: <%= @machine.manufacturer %></p>
         <p>Firmware: <%= @machine.firmware %></p>
         <p>Last maintenance: </p>
+        <p> QR-Code: <%= cl_image_tag(@machine.qr_code.path) %> </p>
+        <%= link_to "Retire Machine", machine_path(@machine.id), method: :delete, class: "btn btn-danger btn-sm" %>
+        <%= link_to "Edit", edit_machine_path(@machine.id), class: "btn btn-primary btn-sm" %>
+
+
 
       </div>
       <div class="col-md-6">
@@ -25,13 +30,13 @@
     <div class="row">
       <div class="col-lg-12">
         <div style= "display: flex;justify-content: space-between;">
-        <h3>Items in this machine:</h3>
-        <i class="fa fa-birthday-cake" aria-hidden="true" style="font-size:44px;"></i>
-        <i class="fa fa-cutlery" aria-hidden="true" style="font-size:44px;"></i>
-        <i class="fa fa-coffee" aria-hidden="true" style="font-size:44px;"></i>
-        <i class="fa fa-plug" aria-hidden="true" style="font-size:44px;"></i>
-        <i class="fa fa-beer" aria-hidden="true" style="font-size:44px;"></i>
-      </div>
+          <h3>Items in this machine:</h3>
+          <i class="fa fa-birthday-cake" aria-hidden="true" style="font-size:44px;"></i>
+          <i class="fa fa-cutlery" aria-hidden="true" style="font-size:44px;"></i>
+          <i class="fa fa-coffee" aria-hidden="true" style="font-size:44px;"></i>
+          <i class="fa fa-plug" aria-hidden="true" style="font-size:44px;"></i>
+          <i class="fa fa-beer" aria-hidden="true" style="font-size:44px;"></i>
+        </div>
       </div>
     </div>
   </div>

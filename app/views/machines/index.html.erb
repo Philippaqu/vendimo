@@ -8,7 +8,7 @@
     <div style="display: flex; justify-content: space-between;">
       <h3 class="section-heading">Status Summary</h3>
       <%= link_to new_machine_path do %>
-        <button class="btn btn-success">Register new machine</button>
+      <button class="btn btn-success">Register new machine</button>
       <% end %>
     </div>
     <br>
@@ -16,11 +16,11 @@
       <thead>
         <tr>
           <th>Id</th>
-          <th>Location</th>
+          <th style="width: 575px">Location</th>
           <th class="text-center">Model</th>
           <th class="text-center">Firmware</th>
           <th class="text-center">Status</th>
-          <th></th>
+          <th class="text-center">Details</th>
         </tr>
       </thead>
       <tbody>
@@ -28,32 +28,22 @@
         <tr>
           <th scope="row">
             <%= link_to machine_path(machine.id) do %>
-              <%= machine.id %>
+            <%= machine.id %>
             <% end %>
-            </th>
+          </th>
           <td>
             <%= link_to machine_path(machine.id) do %>
-              <%= machine.address %>
+            <%= machine.address %>
             <% end %>
           </td>
           <td class="text-center">DEX 9.23</td>
           <td class="text-center">MX985</td>
           <td class="text-center"><i class="fa fa-circle" aria-hidden="true"></i></td>
           <td class="text-center">
-          <div class="btn-group">
-            <button type="button" class="btn btn-default">Details</button>
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="caret"></span>
-              <span class="sr-only">Toggle Dropdown</span>
-            </button>
-            <ul class="dropdown-menu">
-              <li><a href="#">Complete Report</a></li>
-              <li role="separator" class="divider"></li>
-              <li><%= link_to "Edit", edit_machine_path(machine.id)%></li>
-              <li><%= link_to "Retire machine", machine_path(machine.id), method: :delete %></li>
-              <li><a href="#">QR Code</a></li>
-            </ul>
-          </div>
+            <div class="btn btn-primary btn-sm" data-toggle="modal" data-target="#QR-<%= machine.id %>">
+              QR Code
+            </div>
+            <%= link_to "Edit", edit_machine_path(machine.id), class: "btn btn-primary btn-sm" %>
           </td>
         </tr>
         <% end %>
@@ -69,17 +59,32 @@
 <% end %>
 
 <% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    var handler = Gmaps.build('Google');
-    handler.buildMap({ internal: { id: 'map' } }, function() {
-      markers = handler.addMarkers(<%= raw @hash.to_json %>);
-      handler.bounds.extendWith(markers);
-      handler.fitMapToBounds();
-        if (markers.length == 0) {
-          handler.getMap().setZoom(2);
-        } else if (markers.length == 1) {
-          handler.getMap().setZoom(14);
-        }
-    });
-  <% end %>
+<%= javascript_tag do %>
+var handler = Gmaps.build('Google');
+handler.buildMap({ internal: { id: 'map' } }, function() {
+markers = handler.addMarkers(<%= raw @hash.to_json %>);
+handler.bounds.extendWith(markers);
+handler.fitMapToBounds();
+if (markers.length == 0) {
+handler.getMap().setZoom(2);
+} else if (markers.length == 1) {
+handler.getMap().setZoom(14);
+}
+});
 <% end %>
+<% end %>
+
+<!-- Modal -->
+<div>
+  <% @machines.each do |machine| %>
+  <div class="modal" id="QR-<%= machine.id %>"  tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body text-center">
+          <%= cl_image_tag(machine.qr_code.path) %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

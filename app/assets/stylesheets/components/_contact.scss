@@ -8,23 +8,23 @@ section#contact {
     color: $white;
   }
   .form-group {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     input,
     textarea {
-      padding: 20px;
+      padding: 10px;
     }
     input.form-control {
       height: auto;
     }
     textarea.form-control {
-      height: 248px;
+      height: 200px;
     }
     label.control-label {
       color: white!important;
       text-transform: uppercase!important;
       font-weight: 700;
       font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
-      font-size: 1.75rem;
+      font-size: 1.25rem;
     }
   }
 

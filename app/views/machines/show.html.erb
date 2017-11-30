@@ -141,6 +141,7 @@
         <div class="row">
           <div class="col-lg-6">
             <div >
+
               <div class="text-center">
                 <h3 style="padding-top: 50px">Top selling categories</h3>
               </div>
@@ -150,6 +151,18 @@
               <h3>Top Error Messages</h3>
               <%= pie_chart ([["Cooling Unit",44], ["Restock",24],["Operation Malfunction",33],["Connectivity Issue",47],["Malfunction Alert",14]]), legend: "bottom" %>
             </div>
+
+
+            <div class="text-center">
+            <h3 style="padding-top: 50px">Top selling categories</h3>
+            </div>
+             <%= pie_chart ([["Coffee",44], ["Candy",23], ["Electronics",13], ["Snacks",22], ["Beverages",21]]), legend: "bottom" %>
+            </div>
+               <div>
+                <h3>Top Error Messages</h3>
+                <%= pie_chart ([["Cooling Unit",44], ["Restock",24],["Operation Malfunction",33],["Connectivity Issue",47],["Malfunction Alert",14]]), legend: "bottom" %>
+              </div>
+
           </div>
         </div>
       </div>

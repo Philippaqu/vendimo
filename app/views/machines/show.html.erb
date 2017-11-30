@@ -45,6 +45,12 @@
         </div>
       </div>
     </div>
+    <div class="row">
+    <div class="col-lg-6">
+    <%= link_to "Edit", edit_machine_path(@machine.id), class: "btn btn-primary btn-sm" %>
+    <%= link_to "Retire", machine_path(@machine.id), method: :delete, class: "btn btn-danger btn-sm" %>
+    </div>
+    </div>
 
 
   <!--  <div class="row">

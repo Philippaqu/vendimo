@@ -1,4 +1,6 @@
 class MachinesController < ApplicationController
+  before_action :authenticate_company!, only: [:show, :new, :create]
+
   def index
     @machines = Machine.where.not(latitude: nil, longitude: nil)
     @hash  = Gmaps4rails.build_markers @machines do |machine, marker|
@@ -64,7 +66,7 @@ private
 
 def machine_params
   params.require(:machine).permit(:address, :building_photo,
-    :machine_photo, :model, :firmware, :manufacturer, :serial_number,
+    :machine_photo, :model, :firmware, :manufacturer, :serial_number, :last_maintenance,
     :location_contact, :location_phone, :location_install_date)
 end
 end

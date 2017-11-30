@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171127175106) do
+ActiveRecord::Schema.define(version: 20171130140903) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(version: 20171127175106) do
     t.string "location_contact"
     t.string "location_phone"
     t.date "location_install_date"
+    t.string "last_maintenance"
     t.index ["company_id"], name: "index_machines_on_company_id"
   end
 

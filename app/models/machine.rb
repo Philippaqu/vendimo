@@ -15,7 +15,7 @@ class Machine < ApplicationRecord
 
   def create_qrcode
     text = self.id.to_s
-    code = RQRCode::QRCode.new(text, size: 3)
+    code = RQRCode::QRCode.new(text, size: 4)
     file = Dir.tmpdir + "/qrcode-#{SecureRandom.hex}.png"
     png = code.as_png(
      resize_gte_to: false,

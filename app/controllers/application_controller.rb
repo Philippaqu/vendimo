@@ -14,7 +14,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  
+  def default_url_options
+    { host: ENV["HOST"] || "www.vendimo.top" }
+  end
 
   protected
 

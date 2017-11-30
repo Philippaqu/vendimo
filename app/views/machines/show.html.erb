@@ -1,65 +1,165 @@
 <section style="padding: 150px 0px 50px 0px;">
   <div class="container">
-    <!-- Machine header -->
-    <div class="row">
 
+    <div >
+      <%= cl_image_tag(@machine.qr_code.path, height: 70, width: 70, class: "test") %>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <!-- Machine header -->
+        <table class="table info-border" style="width: 300px">
+          <thead>
+            <tr>
+              <th>Machine ID</th>
+              <th><%= @machine.id %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Model:</td>
+              <td><%= @machine.model %></td>
+            </tr>
+            <tr>
+              <td>Manufacturer:</td>
+              <td><%= @machine.manufacturer %></td>
+            </tr>
+            <tr>
+              <td>Firmware:</td>
+              <td><%= @machine.firmware %></td>
+            </tr>
+            <tr>
+              <td>Last Maintenance:</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-lg-6 show-pictures">
+        <div>
+          <img src="https://c1.staticflickr.com/4/3212/2795357890_f3f00f75de_b.jpg" alt="Vending Machine" style="width:200px;height:200px;margin: 20px 20px 0px 0px">
+          <p class="text-muted picture-text">Picture of actual machine</p>
+        </div>
+        <div>
+          <img src="http://www.prague.eu/object/2161/folimanka1.jpg" alt="Landmark" style="width:200px;height:200px; margin: 20px 20px 0px 0px">
+          <p class="text-muted picture-text">Picture of machine surroundings</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+    <div class="col-lg-6">
+    <%= link_to "Edit", edit_machine_path(@machine.id), class: "btn btn-primary btn-sm" %>
+    <%= link_to "Retire", machine_path(@machine.id), method: :delete, class: "btn btn-danger btn-sm" %>
+    </div>
+    </div>
+
+
+  <!--  <div class="row">
       <div class="col-lg-6">
         <p>Machine id: <%= @machine.id %></p>
         <p>Model: <%= @machine.model %></p>
         <p>Manufacturer: <%= @machine.manufacturer %></p>
         <p>Firmware: <%= @machine.firmware %></p>
-        <p>Last maintenance: <%= @machine.last_maintenance %></p>
         <p> QR-Code: <%= cl_image_tag(@machine.qr_code.path) %> </p>
-        <%= link_to "Retire Machine", machine_path(@machine.id), method: :delete, class: "btn btn-danger btn-sm" %>
-        <%= link_to "Edit", edit_machine_path(@machine.id), class: "btn btn-primary btn-sm" %>
+
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+       <img src="https://c1.staticflickr.com/4/3212/2795357890_f3f00f75de_b.jpg" alt="Vending Machine" style="width:200px;height:200px;">
+       <img src="http://www.prague.eu/object/2161/folimanka1.jpg" alt="Landmark" style="width:200px;height:200px;">
+     </div>
+   </div>-->
 
 
 
+
+
+    <!--    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th style="width: 200px" class="text-center" >Machine ID</th>
+          <th >Model</th>
+          <th class="text-center">Manufacturer</th>
+          <th class="text-center">Firmware</th>
+          <th class="text-center">Items in the machine</th>
+          <th class="text-center">Last maintenance</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="text-center"><%= @machine.id %></td>
+          <td class="text-center"><%= @machine.model %></td>
+          <td class="text-center"><%= @machine.manufacturer %></td>
+          <td class="text-center"><%= @machine.firmware %></td>
+          <td class="text-center"><i class="fa fa-birthday-cake" aria-hidden="true" style="font-size:25px;"></i>
+            <i class="fa fa-cutlery" aria-hidden="true" style="font-size:25px;"></i>
+            <i class="fa fa-coffee" aria-hidden="true" style="font-size:25px;"></i>
+            <i class="fa fa-plug" aria-hidden="true" style="font-size:25px;"></i>
+            <i class="fa fa-beer" aria-hidden="true" style="font-size:25px;"></i>
+          </td>
+          <td class="text-center"><%= @machine.updated_at %></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="row">
+      <div class="col-md-6">
       </div>
       <div class="col-md-6">
-        <img src="https://c1.staticflickr.com/4/3212/2795357890_f3f00f75de_b.jpg" alt="Vending Machine" style="width:200px;height:200px;">
-        <img src="http://www.prague.eu/object/2161/folimanka1.jpg" alt="Landmark" style="width:200px;height:200px;">
+        <%= cl_image_tag(@machine.qr_code.path) %>
       </div>
-    </div>
-    <!-- END OF CONTAINER -->
-  </div>
-</section>
+    </div>-->
 
-<section class="bg-light" style="padding: 50px 0px 50px 0px;">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div style= "display: flex;justify-content: space-between;">
-          <h3>Items in this machine:</h3>
-          <i class="fa fa-birthday-cake" aria-hidden="true" style="font-size:44px;"></i>
-          <i class="fa fa-cutlery" aria-hidden="true" style="font-size:44px;"></i>
-          <i class="fa fa-coffee" aria-hidden="true" style="font-size:44px;"></i>
-          <i class="fa fa-plug" aria-hidden="true" style="font-size:44px;"></i>
-          <i class="fa fa-beer" aria-hidden="true" style="font-size:44px;"></i>
+    <!-- END OF CONTAINER -->
+
+    <section class="bg-light" style="padding: 50px 0px 50px 0px;">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div style= "display: flex;justify-content: space-between;">
+              <h3>Items in this machine:</h3>
+              <i class="fa fa-birthday-cake" aria-hidden="true" style="font-size:44px;"></i>
+              <i class="fa fa-cutlery" aria-hidden="true" style="font-size:44px;"></i>
+              <i class="fa fa-coffee" aria-hidden="true" style="font-size:44px;"></i>
+              <i class="fa fa-plug" aria-hidden="true" style="font-size:44px;"></i>
+              <i class="fa fa-beer" aria-hidden="true" style="font-size:44px;"></i>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- CHARTS -->
-<section style="padding: 50px 0px 50px 0px;">
-  <div class="container">
-    <!-- Purchase -->
-    <div class="row">
-      <div class="col-lg-6">
-        <h3>Purchases:</h3>
-        <%= line_chart Machine.group_by_day(:created_at).count %>
+    <!-- CHARTS -->
+    <section style="padding: 50px 0px 50px 0px;">
+      <div class="container">
+        <!-- Purchase -->
+        <div class="row">
+          <div class="col-lg-12">
+            <h3>Purchase History:</h3>
+            <%= line_chart ({"2017-05-13":2,"2017-05-14":5,"2017-05-15":3,"2017-05-16":8,"2017-05-17":6,"2017-05-18":6,"2017-05-19":12,"2017-05-20":5,"2017-05-21":5,"2017-05-22":3,"2017-05-23":1,"2017-05-24":6,"2017-05-25":1,"2017-05-26":3,"2017-05-27":2,"2017-05-28":3,"2017-05-29":2,"2017-05-30":8,"2017-05-31":5}), colors: ["#FDB631"] %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <div >
+              <h3 class="text-center" style="padding-top: 50px">Top selling categories</h3>
+              <%= pie_chart ([["Coffee",44], ["Candy",23], ["Electronics",13], ["Snacks",22], ["Beverages",21]]), legend: "bottom", colors: ["#FDB631", "#fdc45a", "#fdd383", "#fee1ac", "#fef0d5"] %>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div>
+            <h3 class="text-center" style="padding-top: 50px">Top Error Messages</h3>
+              <%= pie_chart ([["Cooling Unit",44], ["Restock",24],["Operation Malfunction",33],["Connectivity Issue",47],["Malfunction Alert",14]]), legend: "bottom", colors: ["#FDB631", "#fdc45a", "#fdd383", "#fee1ac", "#fef0d5"] %>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col-lg-6">
-        <h3>Top selling products</h3>
-        <%= pie_chart Machine.group(:firmware).count %>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- UTILITIES -->
-<section style="padding: 50px 0px 50px 0px;">
+    </section>
+
+
+    <!-- UTILITIES -->
+<!--<section style="padding: 50px 0px 50px 0px;">
   <div class="container">
     <div class="tabs">
       <a class="tab active" data-toggle="tab" href="#menu1">
@@ -79,13 +179,51 @@
         <h3>Menu 2</h3>
         <p>Some content in menu 2.</p>
       </div>
-      <p>2017-25-11 Restock to full</p>
-      <p>2017-17-11 Restock to full</p>
+      <p></p>
       <p>2017-08-11 Machine Malfunction Notification</p>
       <p>2017-04-11 Restock to full</p>
     </div>
   </div>
 </section>
-<!-- <%# content_for(:before_js) do %>
-  <%#= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
-<%# end %> -->
+<% content_for(:before_js) do %>
+<%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+<% end %>-->
+
+
+<h3 class="section-heading">Maintenance History</h3>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th >Component</th>
+      <th>Error Message</th>
+      <th>Error Code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2017-08-11</td>
+      <td>Cooling unit</td>
+      <td>Out of Service</td>
+      <td>EXG57585311</td>
+    </tr>
+    <tr>
+     <td>2017-02-15</td>
+     <td>Battery</td>
+     <td>Restock</td>
+     <td>ESG54673128</td>
+   </tr>
+   <tr>
+     <td>2016-12-03</td>
+     <td>Cooling unit</td>
+     <td>Malfunction Alert</td>
+     <td>EJF37649582</td>
+   </tr>
+   <tr>
+    <td>2015-07-26</td>
+    <td>Stock</td>
+    <td>Out of stock</td>
+    <td>ERD24316598</td>
+  </tr>
+</tbody>
+</table>
